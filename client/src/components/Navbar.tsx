@@ -17,24 +17,31 @@ const Navbar = () => {
   }, [loginCheck])
 
   return (
-    <div className='nav'>
-      <div className='nav-title'>
-        <Link to='/'>Krazy Kanban Board</Link>
-      </div>
+    <div>
       <ul>
       {
         !loginCheck ? (
-          <li className='nav-item'>
-            <button type='button'>
-              <Link to='/login'>Login</Link>
-            </button>
-          </li>
+          <div className='nav'> 
+            <li className='nav-title'>
+              <Link to='/login'>Krazy Kanban Board</Link>
+            </li>
+            <li className='nav-item'>
+              <button type='button'>
+                <Link to='/login'>Login</Link>
+              </button>
+            </li>
+          </div>
         ) : (
-          <li className='nav-item'>
-            <button type='button' onClick={() => {
-              auth.logout();
-            }}>Logout</button>
+          <div className='nav'>
+            <li className='nav-title'>
+              <Link to='/'>Krazy Kanban Board</Link>
+            </li>
+            <li className='nav-item'>
+              <button type='button' onClick={() => {
+                auth.logout();
+              }}>Logout</button>
           </li>
+          </div>
         )
       }
       </ul>
