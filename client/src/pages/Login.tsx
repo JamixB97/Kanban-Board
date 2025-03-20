@@ -1,5 +1,5 @@
-import { useState, useEffect, FormEvent, ChangeEvent } from "react";
-import { useNavigate } from 'react-router-dom';
+import { useState, FormEvent, ChangeEvent } from "react";
+
 import Auth from '../utils/auth';
 import { login } from "../api/authAPI";
 
@@ -9,7 +9,7 @@ const Login = () => {
     password: ''
   });
   const [error, setError] = useState<string | null>(null);
-  const navigate = useNavigate();
+
 
   const handleChange = (e: ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
     const { name, value } = e.target;
@@ -30,26 +30,6 @@ const Login = () => {
       setError('Invalid username or password');
     }
   };
-
-  useEffect(() => {
-    const checkAuth = async () => {
-      try {
-        const response = await fetch('/kanban', {
-          headers: {
-            'Authorization': `Bearer ${Auth.getToken()}`
-          }
-        });
-        if (response.status === 401) {
-          Auth.logout();
-          navigate('/login');
-        }
-      } catch (err) {
-        console.error('Failed to check auth', err);
-      }
-    };
-
-    checkAuth();
-  }, [navigate]);
 
   return (
     <div className='container'>

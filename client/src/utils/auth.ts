@@ -15,13 +15,13 @@ class AuthService {
   isTokenExpired(token: string) {
     // TODO: return a value that indicates if the token is expired
     try {
-      const decodedToken = jwtDecode<JwtPayload>(token);
-      const currentTime = Math.floor(Date.now() / 1000); // Current time in seconds
-      return decodedToken.exp ? decodedToken.exp < currentTime : false;
-    }
-    catch (error) {
-      console.error('Error decoding token:', error);
-      return true; // Assume expired if there's an error
+      const decoded = jwtDecode<JwtPayload>(token);
+      if (decoded.exp && decoded.exp < Date.now() / 1000) {
+        return true;
+      }
+      return false;
+    } catch (err) {
+      return false;
     }
   }
 
@@ -42,7 +42,7 @@ class AuthService {
     // TODO: remove the token from localStorage
     localStorage.removeItem('token');
     // TODO: redirect to the login page
-    window.location.assign('/');
+    window.location.assign('/login');
   }
 }
 

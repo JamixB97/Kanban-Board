@@ -61,6 +61,7 @@ button {
 }
 button:hover {
   border-color: #c464ff;
+  color: #e553f2;
 }
 button:focus,
 button:focus-visible {
@@ -183,6 +184,7 @@ tbody tr:nth-child(odd) {
 #create-ticket-link {
   display: block;
   margin-left: auto;
+  margin-right: 1.8em;
 }
 
 
@@ -245,8 +247,9 @@ tbody tr:nth-child(odd) {
   text-decoration: inherit;
 }
 
-.deleteBtn:hover {
-  color: #e553f2;
+
+.sort-btn{
+  margin-bottom: 1em;
 }
 
 .login-notice {
@@ -260,6 +263,7 @@ tbody tr:nth-child(odd) {
   color: #d66ae4;
   text-shadow: 0 0 10px #91479b;
 }
+
 
 
 
