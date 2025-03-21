@@ -27,6 +27,11 @@ const Navbar = () => {
     }
   };
 
+  const handleLogout = () => {
+    auth.logout();
+    navigate('/login');
+  };
+
   return (
     <div>
       <ul>
@@ -48,9 +53,7 @@ const Navbar = () => {
                 <Link to='/' onClick={(event) => handleLinkClick(event, '/')}>Krazy Kanban Board</Link>
               </li>
               <li className='nav-item'>
-                <button type='button' onClick={() => {
-                  auth.logout();
-                }}>Logout</button>
+                <button type='button' onClick={handleLogout}>Logout</button>
               </li>
             </div>
           )
