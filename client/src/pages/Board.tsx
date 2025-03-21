@@ -29,6 +29,7 @@ const Board = () => {
     if (Auth.isTokenExpired(Auth.getToken())) {
       Auth.logout();
       navigate('/login');
+      setLoginCheck(false);
       return Promise.reject(new Error('Token expired'));
     } else {
       return await action();

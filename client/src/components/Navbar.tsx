@@ -22,6 +22,7 @@ const Navbar = () => {
     if (auth.isTokenExpired(auth.getToken())) {
       auth.logout();
       navigate('/login');
+      setLoginCheck(false);
     } else {
       navigate(path);
     }

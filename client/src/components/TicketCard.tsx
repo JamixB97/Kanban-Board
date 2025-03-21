@@ -1,7 +1,7 @@
 import { useNavigate } from 'react-router-dom';
 import { TicketData } from '../interfaces/TicketData';
 import { ApiMessage } from '../interfaces/ApiMessage';
-import { MouseEventHandler } from 'react';
+import { MouseEventHandler, useState, useEffect } from 'react';
 import Auth from '../utils/auth';
 
 interface TicketCardProps {
@@ -11,6 +11,15 @@ interface TicketCardProps {
 
 const TicketCard = ({ ticket, deleteTicket }: TicketCardProps) => {
   const navigate = useNavigate();
+  const [loginCheck, setLoginCheck] = useState(false);
+
+   const checkLogin = () => {
+      if (Auth.loggedIn()) {
+        setLoginCheck(true);
+      } else {
+        setLoginCheck(false);
+      }
+    };
 
   const handleDelete: MouseEventHandler<HTMLButtonElement> = async (event) => {
     const ticketId = Number(event.currentTarget.value);
@@ -28,10 +37,16 @@ const TicketCard = ({ ticket, deleteTicket }: TicketCardProps) => {
     if (Auth.isTokenExpired(Auth.getToken())) {
       Auth.logout();
       navigate('/login');
+      setLoginCheck(false);
     } else {
       navigate('/edit', { state: { id: ticket.id } });
     }
   };
+
+  useEffect(() => {
+    console.log(loginCheck);
+    checkLogin();
+  }, [loginCheck]);
 
   return (
     <div className='ticket-card'>
