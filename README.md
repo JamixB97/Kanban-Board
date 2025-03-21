@@ -29,9 +29,9 @@ npm run start
         
 ## Usage
         
-To use this application, login by clicking the button in the top right, and enter valid username and password. To create a new ticket or edit a previous ticket, click the new ticket button or edit button, and fill out or change the form. To delete a ticket, simply click the delete button. To return back to the board at any time, click the Krazy Kanban Board at the top left. If your session expires, which is set for 5 minutes, when you try to click on any link or button, you will be redirected to the login page.
+To use this application, login by clicking the button in the top right, and enter valid username and password. To create a new ticket or edit a previous ticket, click the new ticket button or edit button, and fill out or change the form. To delete a ticket, simply click the delete button. To return back to the board at any time, click the Krazy Kanban Board at the top left. To sort alphabetically, click the sort by name button. If your session expires, which is set for 5 minutes, when you try to click on any link or button, you will be redirected to the login page.
 
-See the [Deployed Application](https://candidate-search-1-e5x6.onrender.com/)
+See the [Deployed Application](https://kanban-board-gq3u.onrender.com/)
 
 ## Questions
 
