@@ -30,6 +30,7 @@ const Navbar = () => {
   const handleLogout = () => {
     auth.logout();
     navigate('/login');
+    setLoginCheck(false);
   };
 
   return (
